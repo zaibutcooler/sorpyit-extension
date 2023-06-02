@@ -2,6 +2,58 @@
 
 {% block yield %}
 
-<h4>Freelance create Page</h4>
+	<h2>Create Freelance Offer</h2>
+	<form method="post" action="">
+		{% csrf_token %}
+
+		<label for="title">Title:</label>
+		<input type="text" id="title" name="title" required>
+
+		<br>
+
+		<label for="description">Description:</label>
+		<textarea id="description" name="description" required></textarea>
+
+		<br>
+
+		<label for="amount">Amount:</label>
+		<input type="number" id="amount" name="amount" required>
+
+		<br>
+
+		<label for="requirements">Requirements:</label>
+		<textarea id="requirements" name="requirements" required></textarea>
+
+		<br>
+
+		<label for="currency">Currency:</label>
+		<select id="currency" name="currency" required>
+			<option value="" disabled selected>Select Currency</option>
+			<option value="Dollar">Dollar</option>
+			<option value="Euro">Euro</option>
+			<option value="Yenn">Yenn</option>
+			<option value="Yuan">Yuan</option>
+			<option value="Kyats">Kyats</option>
+		</select>
+
+		<br>
+
+		<label for="deadline">Deadline:</label>
+		<input type="text" id="deadline" name="deadline" required>
+
+		<br>
+
+		<label for="deadline_type">Deadline Type:</label>
+		<select id="deadline_type" name="deadline_type" required>
+			<option value="" disabled selected>Select Deadline Type</option>
+			<option value="day">Day</option>
+			<option value="month">Month</option>
+			<option value="year">Year</option>
+		</select>
+
+		<br>
+
+		<input type="submit" value="Create">
+	</form>
 
 {% endblock %}

@@ -2,6 +2,38 @@
 
 {% block yield %}
 
-<h4>Login Page</h4>
+<div class="flex justify-center items-center h-screen">
+  <div class="bg-white shadow-lg rounded-lg p-8">
+    <h4 class="text-2xl font-semibold mb-6 text-gray-800">Login Page</h4>
+
+    <div>
+      {% if error_message %}
+        <h3 class="text-red-500 mb-4">{{ error_message }}</h3>
+      {% endif %}
+
+      <form action="" method="POST">
+        {% csrf_token %}
+
+        <div class="mb-6">
+          <label for="username" class="text-lg font-medium text-gray-800">Username</label>
+          <input type="text" name="username" id="username" class="w-full bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 rounded-lg px-4 py-2 mt-1">
+        </div>
+
+        <div class="mb-6">
+          <label for="password" class="text-lg font-medium text-gray-800">Password</label>
+          <input type="password" name="password" id="password" class="w-full bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 rounded-lg px-4 py-2 mt-1">
+        </div>
+
+        <button type="submit" class="w-full bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 px-4 rounded-lg">
+          Login
+        </button>
+      </form>
+    </div>
+
+    <div class="text-center mt-6">
+      <p class="text-gray-500 text-sm">Don't have an account? <a href="{% url 'register'%}" class="text-cyan-500 font-semibold">Register</a></p>
+    </div>
+  </div>
+</div>
 
 {% endblock %}

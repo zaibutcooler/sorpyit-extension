@@ -1,0 +1,15 @@
+
+{% extends 'layout.html' %}
+
+{% block yield %}
+
+<h4>Are you a client? or a job seeker?</h4>
+<a href="{%url 'seekercreateprofile'%}">A Job-seeker</a>
+<a href="{%url 'clientcreateprofile'%}">A Client</a>
+
+
+</div>
+
+
+
+{% endblock %}

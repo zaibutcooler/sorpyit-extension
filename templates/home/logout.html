@@ -4,4 +4,23 @@
 
 <h4>Logout Page</h4>
 
+<div class="container">
+  <div
+    class="card mt-5 mx-auto"
+    style="max-width: 400px; border-color: #ff5a5f">
+    <div class="card-body">
+      <h1 class="card-title text-center" style="color: #ff5a5f">Logout</h1>
+      <p class="card-text fs-5 text-center">Are you sure you want to logout?</p>
+      <form method="POST" action="" class="d-flex justify-content-center">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger fs-5" style="width: 120px">
+          Logout
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
 {% endblock %}

@@ -1,10 +1,26 @@
-<div> 
-	<a href="{% url 'root'%} ">Home|  </a>
-	<a href="{% url 'about'%} ">About|  </a>
-	<a href="{% url 'findex'%} ">Freelance| </a>
-	<a href="{% url 'jindex'%} ">Home </a>
+<div class="bg-slate-100 py-2 fixed top-0 left-0 right-0 z-10">
+  <nav class="flex justify-between items-center container mx-auto px-4">
+    <div class="flex items-center">
+      <a href="{% url 'root'%}" class="text-sky-700 text-sm hover:text-sky-900 mr-4"><strong>Home</strong></a>
+      <a href="{% url 'about'%}" class="text-sky-700 text-sm hover:text-sky-900 mr-4">About</a>
+      <a href="{% url 'findex'%}" class="text-sky-700 text-sm hover:text-sky-900 mr-4">Freelance</a>
+      <a href="{% url 'jindex'%}" class="text-sky-700 text-sm hover:text-sky-900">Jobs</a>
+    </div>
 
-
-
+    <div class="flex items-center">
+      {% if user.is_authenticated %}
+        <form action="{% url 'logout'%}" method="post">
+          {% csrf_token %}
+          <button type="submit" class="text-white hover:text-sky-300 ml-4">Logout</button>
+        </form>
+      {% else %}
+        <a href="{% url 'register'%}" class="ml-4">
+          <button class="bg-sky-200 hover:bg-sky-400 text-black text-sm font-semibold py-2 px-4 rounded">Register</button>
+        </a>
+        <a href="{% url 'login'%}" class="ml-4">
+          <button class="bg-sky-700 hover:bg-sky-400 text-white text-sm font-semibold py-2 px-4 rounded">Login</button>
+        </a>
+      {% endif %}
+    </div>
+  </nav>
 </div>
-<hr>

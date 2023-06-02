@@ -9,12 +9,12 @@ class Country(models.Model):
 	def __str__(self):
 		return self.name
 
-class Currency(models.Model):
-	name=models.CharField(max_length=100)
-	country=models.ForeignKey(Country,on_delete=models.CASCADE)
+# class Currency(models.Model):
+# 	name=models.CharField(max_length=100)
+# 	country=models.ForeignKey(Country,on_delete=models.CASCADE)
 
-	def __str__(self):
-		return self.name
+# 	def __str__(self):
+# 		return self.name
 
 class Keyword(models.Model):
 	name=models.CharField(max_length=100)
@@ -22,12 +22,20 @@ class Keyword(models.Model):
 	def __str__(self):
 		return self.name
 
+class JobOffer(models.Model):
 
-class Job(models.Model):
-	creator=models.ForeignKey(User,on_delete=models.CASCADE)
+	CURRENCY_CHOICES = (
+        ("Dollar", 'Dollar'),
+        ("Yenn", 'Yenn'),
+        ("Euro", 'Euro'),
+        ("Yuan", 'Yuan'),
+        ("Kyats", 'Kyats'),
+
+    )
+	currency = models.CharField(max_length=100,choices=CURRENCY_CHOICES)
+	uploader=models.ForeignKey(User,on_delete=models.CASCADE)
 	title=models.CharField(max_length=100)
 	description=models.TextField(null=True,blank=True)
-	currency=models.ForeignKey(Currency,on_delete=models.CASCADE)
 	country=models.ForeignKey(Country,on_delete=models.CASCADE)
 	city=models.CharField(max_length=100)
 	salary=models.IntegerField()
@@ -40,6 +48,15 @@ class Job(models.Model):
 
 	def __str__(self):
 		return self.title
+
+class JobApply(models.Model):
+	user=models.ForeignKey(User,on_delete=models.CASCADE)
+	joboffer=models.ForeignKey(JobOffer,on_delete=models.CASCADE)
+	created=models.DateTimeField(auto_now_add=True)
+
+
+
+
 
 
 

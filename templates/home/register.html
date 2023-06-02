@@ -2,6 +2,33 @@
 
 {% block yield %}
 
-<h4>Register Page</h4>
+<div class="flex justify-center items-center h-screen">
+  <div class="bg-white shadow-lg rounded-lg p-8 w-80">
+    <h4 class="text-2xl font-semibold mb-6 text-gray-800">Register Page</h4>
+
+    <form action="" method="POST">
+      {% csrf_token %}
+
+      <div class="mb-4">
+        <label for="username" class="text-lg font-medium text-gray-800">Username</label>
+        <input type="text" id="username" name="username" placeholder="Username" class="w-full bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 rounded-lg px-4 py-2 mt-1">
+      </div>
+
+      <div class="mb-4">
+        <label for="password1" class="text-lg font-medium text-gray-800">Password</label>
+        <input type="password" id="password1" name="password1" placeholder="Password" class="w-full bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 rounded-lg px-4 py-2 mt-1">
+      </div>
+
+      <div class="mb-6">
+        <label for="password2" class="text-lg font-medium text-gray-800">Confirm Password</label>
+        <input type="password" id="password2" name="password2" placeholder="Confirm Password" class="w-full bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 rounded-lg px-4 py-2 mt-1">
+      </div>
+
+      <button type="submit" class="w-full bg-cyan-500 hover:bg-sky-400 text-white font-semibold py-2 px-4 rounded-lg">
+        Register
+      </button>
+    </form>
+  </div>
+</div>
 
 {% endblock %}

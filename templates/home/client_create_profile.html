@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block yield %}
+
+<div class="flex justify-center items-center h-screen bg-sky-100">
+  <form action="" method="POST" enctype="multipart/form-data" class="bg-white shadow-lg rounded-lg p-8 w-80">
+    {% csrf_token %}
+
+    <input type="text" name="name" placeholder="Name" class="w-full bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-500 rounded-lg px-4 py-2 mb-4">
+    <input type="file" name="profile_picture" class="w-full bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-500 rounded-lg px-4 py-2 mb-4">
+    <input type="text" name="organization" placeholder="Organization" class="w-full bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-500 rounded-lg px-4 py-2 mb-4">
+    <input type="text" name="organization_link" placeholder="Organization Link" class="w-full bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-500 rounded-lg px-4 py-2 mb-4">
+    <textarea name="bio" placeholder="Bio" class="w-full bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-500 rounded-lg px-4 py-2 mb-4"></textarea>
+    <input type="email" name="email" placeholder="Email" class="w-full bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-500 rounded-lg px-4 py-2 mb-4">
+    <input type="text" name="phonenumber" placeholder="Phone Number" class="w-full bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-500 rounded-lg px-4 py-2 mb-4">
+
+    <input type="submit" value="Submit" class="w-full bg-sky-500 hover:bg-sky-600 text-white font-semibold py-2 px-4 rounded-lg">
+  </form>
+</div>
+
+{% endblock %}

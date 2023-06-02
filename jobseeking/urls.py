@@ -5,9 +5,9 @@ from . import views
 urlpatterns=[
 	path("",views.index,name="jindex"),
 	path("create/",views.create,name="jcreate"),
-	path("update/",views.update,name="jupdate"),
-	path("detail/",views.detail,name="jdetail"),
-	path("delete/",views.delete,name="jdelete"),
+	path("update/<int:pk>",views.update,name="jupdate"),
+	path("detail/<int:pk>",views.detail,name="jdetail"),
+	path("delete/<int:pk>",views.delete,name="jdelete"),
 
 
 ]

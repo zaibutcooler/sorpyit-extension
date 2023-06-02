@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block yield %}
+
+<form action="" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <input type="text" name="name" placeholder="Name"><br>
+  <input type="file" name="profile_picture"><br>
+  <input type="text" name="socialmedia" placeholder="Social Media"><br>
+  <textarea name="bio" placeholder="Bio"></textarea><br>
+  <input type="email" name="email" placeholder="Email"><br>
+  <input type="text" name="phonenumber" placeholder="Phone Number"><br>
+  <input type="text" name="highschool" placeholder="High School"><br>
+  <input type="text" name="college" placeholder="College"><br>
+  <input type="submit" value="Submit">
+</form>
+
+{% endblock %}
