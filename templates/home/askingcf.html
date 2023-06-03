@@ -1,15 +1,15 @@
-
 {% extends 'layout.html' %}
 
 {% block yield %}
 
-<h4>Are you a client? or a job seeker?</h4>
-<a href="{%url 'seekercreateprofile'%}">A Job-seeker</a>
-<a href="{%url 'clientcreateprofile'%}">A Client</a>
-
-
+<div class="flex justify-center items-center h-screen">
+  <div class="bg-white shadow-lg rounded-lg p-8 w-80">
+    <h4 class="text-2xl font-bold mb-4 text-center">Choose your profile type</h4>
+    <div class="flex flex-col gap-4">
+      <a href="{% url 'seekercreateprofile' %}" class="bg-sky-500 hover:bg-sky-600 text-white font-semibold py-2 px-4 rounded-lg text-center">I'm a Job Seeker</a>
+      <a href="{% url 'clientcreateprofile' %}" class="bg-sky-500 hover:bg-sky-600 text-white font-semibold py-2 px-4 rounded-lg text-center">I'm a Client</a>
+    </div>
+  </div>
 </div>
-
-
 
 {% endblock %}

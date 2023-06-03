@@ -76,32 +76,32 @@ def asking(request):
 
 def clientcreateprofile(request):
     template = "home/client_create_profile.html"
-    user = request.user
+    # user = request.user
 
-    if ClientProfile.objects.filter(user=user).exists():
-        return redirect('root')
+    # if ClientProfile.objects.filter(user=user).exists():
+    #     return redirect('root')
 
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        profile_picture = request.FILES.get('profile_picture')
-        organization = request.POST.get('organization')
-        organization_link = request.POST.get('organization_link')
-        bio = request.POST.get('bio')
-        email = request.POST.get('email')
-        phonenumber = request.POST.get('phonenumber')
+    # if request.method == 'POST':
+    #     name = request.POST.get('name')
+    #     profile_picture = request.FILES.get('profile_picture')
+    #     organization = request.POST.get('organization')
+    #     organization_link = request.POST.get('organization_link')
+    #     bio = request.POST.get('bio')
+    #     email = request.POST.get('email')
+    #     phonenumber = request.POST.get('phonenumber')
 
-        profile = ClientProfile.objects.create(
-            name=name,
-            profile_picture=profile_picture,
-            organization=organization,
-            organization_link=organization_link,
-            bio=bio,
-            email=email,
-            phonenumber=phonenumber,
-            user=user.id  # Pass the user ID instead of the user object
-        )
+    #     profile = ClientProfile.objects.create(
+    #         name=name,
+    #         profile_picture=profile_picture,
+    #         organization=organization,
+    #         organization_link=organization_link,
+    #         bio=bio,
+    #         email=email,
+    #         phonenumber=phonenumber,
+    #         user=user.id 
+    #     )
 
-        return redirect('home')
+    #     return redirect('home')
 
     data = {}
     return render(request, template, data)
@@ -109,34 +109,34 @@ def clientcreateprofile(request):
 
 def seekercreateprofile(request):
     template = "home/seeker_create_profile.html"
-    user=request.user
+    # user=request.user
 
-    if NormalProfile.objects.filter(user=user).exists():
-        return redirect('root')
+    # if NormalProfile.objects.filter(user=user).exists():
+    #     return redirect('root')
 
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        profile_picture = request.FILES.get('profile_picture')
-        socialmedia = request.POST.get('socialmedia')
-        bio = request.POST.get('bio')
-        email = request.POST.get('email')
-        phonenumber = request.POST.get('phonenumber')
-        highschool = request.POST.get('highschool')
-        college = request.POST.get('college')
+    # if request.method == 'POST':
+    #     name = request.POST.get('name')
+    #     profile_picture = request.FILES.get('profile_picture')
+    #     socialmedia = request.POST.get('socialmedia')
+    #     bio = request.POST.get('bio')
+    #     email = request.POST.get('email')
+    #     phonenumber = request.POST.get('phonenumber')
+    #     highschool = request.POST.get('highschool')
+    #     college = request.POST.get('college')
 
-        profile = NormalProfile.objects.create(
-            name=name,
-            profile_picture=profile_picture,
-            socialmedia=socialmedia,
-            bio=bio,
-            email=email,
-            phonenumber=phonenumber,
-            highshcool=highschool,
-            collage=college,
-            user=request.user
-        )
+    #     profile = NormalProfile.objects.create(
+    #         name=name,
+    #         profile_picture=profile_picture,
+    #         socialmedia=socialmedia,
+    #         bio=bio,
+    #         email=email,
+    #         phonenumber=phonenumber,
+    #         highshcool=highschool,
+    #         collage=college,
+    #         user=request.user
+    #     )
 
-        return redirect('login')
+    #     return redirect('login')
 
     data = {}
     return render(request, template, data)
