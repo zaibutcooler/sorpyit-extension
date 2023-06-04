@@ -10,23 +10,6 @@
         {% csrf_token %}
 
         <div class="mb-4">
-          <label for="currency" class="block mb-2 text-sky-800">Currency:</label>
-          <select id="currency" name="currency" required class="w-full border border-sky-100 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500">
-            <option value="" disabled selected>Select Currency</option>
-            <option value="Dollar">Dollar</option>
-            <option value="Euro">Euro</option>
-            <option value="Yenn">Yenn</option>
-            <option value="Yuan">Yuan</option>
-            <option value="Kyats">Kyats</option>
-          </select>
-        </div>
-
-        <div class="mb-4">
-          <label for="uploader" class="block mb-2 text-sky-800">Uploader:</label>
-          <input type="text" id="uploader" name="uploader" required class="w-full border border-sky-100 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500">
-        </div>
-
-        <div class="mb-4">
           <label for="title" class="block mb-2 text-sky-800">Title:</label>
           <input type="text" id="title" name="title" required class="w-full border border-sky-100 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500">
         </div>
@@ -55,8 +38,15 @@
         </div>
 
         <div class="mb-4">
-          <label for="onsite" class="block mb-2 text-sky-800">Onsite:</label>
-          <input type="checkbox" id="onsite" name="onsite" class="form-checkbox h-5 w-5 text-sky-600">
+          <label class="block mb-2 text-sky-800">Job type</label>
+          <div class="flex items-center">
+            <input type="radio" id="onsite" name="onsite" value="true" required class="border border-sky-100 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500">
+            <label for="onsite" class="ml-2">Onsite</label>
+          </div>
+          <div class="flex items-center">
+            <input type="radio" id="remote" name="onsite" value="false" required class="border border-sky-100 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500">
+            <label for="remote" class="ml-2">Remote</label>
+          </div>
         </div>
 
         <div class="mb-4">
