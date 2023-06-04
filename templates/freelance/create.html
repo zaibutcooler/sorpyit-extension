@@ -2,58 +2,71 @@
 
 {% block yield %}
 
-	<h2>Create Freelance Offer</h2>
-	<form method="post" action="">
-		{% csrf_token %}
+<div class="flex justify-between">
+  <div class="w-1/3 my-6 mx-8 ">
+    <div class="bg-sky-100 border border-sky-300 shadow-lg rounded-lg py-10 px-12">
+      <h2 class="text-2xl text-sky-900 mb-8">Create Freelance Offer</h2>
+      <form method="post" action="">
+        {% csrf_token %}
 
-		<label for="title">Title:</label>
-		<input type="text" id="title" name="title" required>
+        <div class="mb-4">
+          <label for="title" class="block mb-2 text-sky-800">Title:</label>
+          <input type="text" id="title" name="title" required class="w-full border border-sky-100 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500">
+        </div>
 
-		<br>
+        <div class="mb-4">
+          <label for="description" class="block mb-2 text-sky-800">Description:</label>
+          <textarea id="description" name="description" required class="w-full border border-sky-100 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500"></textarea>
+        </div>
 
-		<label for="description">Description:</label>
-		<textarea id="description" name="description" required></textarea>
+        <div class="mb-4">
+          <label for="amount" class="block mb-2 text-sky-800">Amount:</label>
+          <input type="number" id="amount" name="amount" required class="w-full border border-sky-100 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500">
+        </div>
 
-		<br>
+        <div class="mb-4">
+          <label for="requirements" class="block mb-2 text-sky-800">Requirements:</label>
+          <textarea id="requirements" name="requirements" required class="w-full border border-sky-100 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500"></textarea>
+        </div>
 
-		<label for="amount">Amount:</label>
-		<input type="number" id="amount" name="amount" required>
+        <div class="mb-4">
+          <label for="currency" class="block mb-2 text-sky-800">Currency:</label>
+          <select id="currency" name="currency" required class="w-full border border-sky-100 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500">
+            <option value="" disabled selected>Select Currency</option>
+            <option value="Dollar">Dollar</option>
+            <option value="Euro">Euro</option>
+            <option value="Yenn">Yenn</option>
+            <option value="Yuan">Yuan</option>
+            <option value="Kyats">Kyats</option>
+          </select>
+        </div>
 
-		<br>
+        <div class="mb-4">
+          <label for="deadline" class="block mb-2 text-sky-800">Deadline:</label>
+          <input type="text" id="deadline" name="deadline" required class="w-full border border-sky-100 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500">
+        </div>
 
-		<label for="requirements">Requirements:</label>
-		<textarea id="requirements" name="requirements" required></textarea>
+        <div class="mb-4">
+          <label for="deadline_type" class="block mb-2 text-sky-800">Deadline Type:</label>
+          <select id="deadline_type" name="deadline_type" required class="w-full border border-sky-100 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500">
+            <option value="" disabled selected>Select Deadline Type</option>
+            <option value="day">Day</option>
+            <option value="month">Month</option>
+            <option value="year">Year</option>
+          </select>
+        </div>
 
-		<br>
+        <div class="flex justify-center">
+          <input type="submit" value="Create" class="w-1/2 bg-sky-200 text-sky-900 border border-sky-400 hover:bg-sky-600 font-semibold py-2 px-4 rounded-md">
+        </div>
 
-		<label for="currency">Currency:</label>
-		<select id="currency" name="currency" required>
-			<option value="" disabled selected>Select Currency</option>
-			<option value="Dollar">Dollar</option>
-			<option value="Euro">Euro</option>
-			<option value="Yenn">Yenn</option>
-			<option value="Yuan">Yuan</option>
-			<option value="Kyats">Kyats</option>
-		</select>
+      </form>
+    </div>
+  </div>
 
-		<br>
-
-		<label for="deadline">Deadline:</label>
-		<input type="text" id="deadline" name="deadline" required>
-
-		<br>
-
-		<label for="deadline_type">Deadline Type:</label>
-		<select id="deadline_type" name="deadline_type" required>
-			<option value="" disabled selected>Select Deadline Type</option>
-			<option value="day">Day</option>
-			<option value="month">Month</option>
-			<option value="year">Year</option>
-		</select>
-
-		<br>
-
-		<input type="submit" value="Create">
-	</form>
+  <div class="w-1/2">
+    <!-- Place your content on the right side of the card here -->
+  </div>
+</div>
 
 {% endblock %}

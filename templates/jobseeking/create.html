@@ -2,40 +2,94 @@
 
 {% block yield %}
 
-<h4>Job Create Page</h4>
+<div class="flex justify-between">
+  <div class="w-1/3 my-6 mx-8">
+    <div class="bg-sky-100 border border-sky-300 shadow-lg rounded-lg py-10 px-12">
+      <h2 class="text-3xl text-sky-900 mb-8">Create Job Offer</h2>
+      <form method="post" action="">
+        {% csrf_token %}
 
-<form action="" method="POST">
+        <div class="mb-4">
+          <label for="currency" class="block mb-2 text-sky-800">Currency:</label>
+          <select id="currency" name="currency" required class="w-full border border-sky-100 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500">
+            <option value="" disabled selected>Select Currency</option>
+            <option value="Dollar">Dollar</option>
+            <option value="Euro">Euro</option>
+            <option value="Yenn">Yenn</option>
+            <option value="Yuan">Yuan</option>
+            <option value="Kyats">Kyats</option>
+          </select>
+        </div>
 
+        <div class="mb-4">
+          <label for="uploader" class="block mb-2 text-sky-800">Uploader:</label>
+          <input type="text" id="uploader" name="uploader" required class="w-full border border-sky-100 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500">
+        </div>
 
-</form>
+        <div class="mb-4">
+          <label for="title" class="block mb-2 text-sky-800">Title:</label>
+          <input type="text" id="title" name="title" required class="w-full border border-sky-100 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500">
+        </div>
 
+        <div class="mb-4">
+          <label for="description" class="block mb-2 text-sky-800">Description:</label>
+          <textarea id="description" name="description" required class="w-full border border-sky-100 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500"></textarea>
+        </div>
 
+        <div class="mb-4">
+          <label for="country" class="block mb-2 text-sky-800">Country:</label>
+          <select id="country" name="country" required class="w-full border border-sky-100 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500">
+            <option value="" disabled selected>Select Country</option>
+            <!-- Add country options dynamically -->
+          </select>
+        </div>
 
-class JobOffer(models.Model):
+        <div class="mb-4">
+          <label for="city" class="block mb-2 text-sky-800">City:</label>
+          <input type="text" id="city" name="city" required class="w-full border border-sky-100 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500">
+        </div>
 
-	CURRENCY_CHOICES = (
-        ("Dollar", 'Dollar'),
-        ("Yenn", 'Yenn'),
-        ("Euro", 'Euro'),
-        ("Yuan", 'Yuan'),
-        ("Kyats", 'Kyats'),
+        <div class="mb-4">
+          <label for="salary" class="block mb-2 text-sky-800">Salary:</label>
+          <input type="number" id="salary" name="salary" required class="w-full border border-sky-100 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500">
+        </div>
 
-    )
-	currency = models.CharField(max_length=100,choices=CURRENCY_CHOICES)
-	uploader=models.ForeignKey(User,on_delete=models.CASCADE)
-	title=models.CharField(max_length=100)
-	description=models.TextField(null=True,blank=True)
-	country=models.ForeignKey(Country,on_delete=models.CASCADE)
-	city=models.CharField(max_length=100)
-	salary=models.IntegerField()
-	onsite=models.BooleanField()
-	requirements=models.TextField()
-	responsibilities=models.TextField(null=True,blank=True)
-	email=models.EmailField()
-	phonenumber=models.CharField(max_length=15)
-	created=models.DateTimeField(auto_now_add=True)
+        <div class="mb-4">
+          <label for="onsite" class="block mb-2 text-sky-800">Onsite:</label>
+          <input type="checkbox" id="onsite" name="onsite" class="form-checkbox h-5 w-5 text-sky-600">
+        </div>
 
-	def __str__(self):
-		return self.title
+        <div class="mb-4">
+          <label for="requirements" class="block mb-2 text-sky-800">Requirements:</label>
+          <textarea id="requirements" name="requirements" required class="w-full border border-sky-100 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500"></textarea>
+        </div>
+
+        <div class="mb-4">
+          <label for="responsibilities" class="block mb-2 text-sky-800">Responsibilities:</label>
+          <textarea id="responsibilities" name="responsibilities" class="w-full border border-sky-100 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500"></textarea>
+        </div>
+
+        <div class="mb-4">
+          <label for="email" class="block mb-2 text-sky-800">Email:</label>
+          <input type="email" id="email" name="email" required class="w-full border border-sky-100 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500">
+        </div>
+
+        <div class="mb-4">
+          <label for="phonenumber" class="block mb-2 text-sky-800">Phone Number:</label>
+          <input type="text" id="phonenumber" name="phonenumber" required class="w-full border border-sky-100 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500">
+        </div>
+
+        <div class="flex justify-center">
+          <input type="submit" value="Create" class="w-1/2 bg-sky-200 text-sky-900 border border-sky-400 hover:bg-sky-600 font-semibold py-2 px-4 rounded-md">
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <div class="w-1/2">
+    <!-- Place your content on the right side of the card here -->
+  </div>
+</div>
 
 {% endblock %}
