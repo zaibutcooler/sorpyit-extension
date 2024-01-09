@@ -1,0 +1,21 @@
+# Node.js dependencies
+node_modules/
+
+# Built extension
+out/
+
+# Yeoman configuration
+.yo-rc.json
+
+# VS Code specific files
+.vscode/
+
+# Miscellaneous
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Environment variables file
+.env
